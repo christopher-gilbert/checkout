@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    parallelism: 2
+    environment:
+      _JAVA_OPTIONS: "-Xmx3g"
+      GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2"
+    docker:
+      - image: cimg/openjdk:17.0.1
+    steps:
+      - checkout
+      - run:
+          name: create jar
+          command: ./gradlew assemble
