@@ -1,6 +1,7 @@
 package com.chrisgilbert.checkout
 
 import com.chrisgilbert.checkout.dto.Sterling
+import com.chrisgilbert.checkout.dto.StockItemDto
 import com.chrisgilbert.checkout.mapper.BasketMapper
 import com.chrisgilbert.checkout.mapper.SterlingMapper
 import com.chrisgilbert.checkout.repository.BasketRepository
@@ -47,16 +48,16 @@ class EndToEndTest extends Specification {
 
         and: 'a selection of items is added to the basket'
         with(checkoutController) {
-            scanItem('A', basketId)
-            scanItem('D', basketId)
-            scanItem('A', basketId)
-            scanItem('A', basketId)
-            scanItem('B', basketId)
-            scanItem('A', basketId)
-            scanItem('C', basketId)
-            scanItem('B', basketId)
-            scanItem('C', basketId)
-            scanItem('C', basketId)
+            scanItem(new StockItemDto('A', 1), basketId)
+            scanItem(new StockItemDto('D', 1), basketId)
+            scanItem(new StockItemDto('A', 1), basketId)
+            scanItem(new StockItemDto('A', 1), basketId)
+            scanItem(new StockItemDto('B', 1), basketId)
+            scanItem(new StockItemDto('A', 1), basketId)
+            scanItem(new StockItemDto('C', 1), basketId)
+            scanItem(new StockItemDto('B', 1), basketId)
+            scanItem(new StockItemDto('C', 1), basketId)
+            scanItem(new StockItemDto('C', 1), basketId)
         }
 
         and: 'the total price is calculated'
@@ -105,16 +106,16 @@ class EndToEndTest extends Specification {
 
         and: 'a selection of items is added to the basket'
         with(checkoutController) {
-            scanItem('A', basketId)
-            scanItem('D', basketId)
-            scanItem('A', basketId)
-            scanItem('A', basketId)
-            scanItem('B', basketId)
-            scanItem('A', basketId)
-            scanItem('C', basketId)
-            scanItem('B', basketId)
-            scanItem('C', basketId)
-            scanItem('C', basketId)
+            scanItem(new StockItemDto('A', 1), basketId)
+            scanItem(new StockItemDto('D', 1), basketId)
+            scanItem(new StockItemDto('A', 1), basketId)
+            scanItem(new StockItemDto('A', 1), basketId)
+            scanItem(new StockItemDto('B', 1), basketId)
+            scanItem(new StockItemDto('A', 1), basketId)
+            scanItem(new StockItemDto('C', 1), basketId)
+            scanItem(new StockItemDto('B', 1), basketId)
+            scanItem(new StockItemDto('C', 1), basketId)
+            scanItem(new StockItemDto('C', 1), basketId)
         }
 
         and: 'a new offer is applied to one of the items'
