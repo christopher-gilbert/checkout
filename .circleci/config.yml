@@ -29,7 +29,7 @@ jobs:
       - store_artifacts:
           path: build/test-results/test
           when: always
-      - run
+      - run:
           name: create jar
           command: ./gradlew assemble
       - store_artifacts:
