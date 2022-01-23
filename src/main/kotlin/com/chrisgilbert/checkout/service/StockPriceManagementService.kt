@@ -36,6 +36,11 @@ class StockPriceManagementService(
     }
 
     /**
+     * Return a copy of all current Stock Items.
+     */
+    fun getStockItems() = stockItemRepository.findAll().toList()
+
+    /**
      * Create and store a new [SpecialOffer] for the [StockItem] identified by the passed in SKU, returning that offer
      * unless an offer already exists for the same [StockItem] in which case a [DuplicateItemException] is thrown, or
      * there is no [StockItem] with that SKU, in which case a [MissingItemException] is thrown.

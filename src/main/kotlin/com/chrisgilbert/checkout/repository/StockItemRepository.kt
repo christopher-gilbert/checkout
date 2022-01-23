@@ -27,4 +27,9 @@ class StockItemRepository(
         it.sku == sku
     }
 
+    /**
+     * Return all current stock items.
+     */
+    fun findAll() = stockItems
+
 }

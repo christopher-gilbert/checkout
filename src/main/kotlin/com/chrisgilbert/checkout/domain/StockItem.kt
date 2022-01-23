@@ -10,7 +10,7 @@ import java.util.UUID.randomUUID
 data class StockItem(
     val id: String = randomUUID().toString(),
     val sku: String,
-    private val unitPrice: Int
+    val unitPrice: Int
 ) : PricingStrategy {
 
     override fun priceOf(quantity: Int) = quantity * unitPrice

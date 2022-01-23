@@ -5,6 +5,7 @@ import com.chrisgilbert.checkout.dto.StockItemDto
 import com.chrisgilbert.checkout.mapper.BasketMapper
 import com.chrisgilbert.checkout.mapper.SterlingMapper
 import com.chrisgilbert.checkout.service.CheckoutService
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -37,4 +38,12 @@ class CheckoutController(
     @GetMapping("/baskets/{basketId}/total")
     fun getTotalPrice(@PathVariable basketId: String) = sterlingMapper.penceToSterling(checkoutService.calculateTotalPrice(basketId))
 
+    /**
+     * checking the behaviour when caffiene is configured but not on the classpath
+     */
+    @Cacheable("web-cache")
+    @GetMapping("/hello")
+    fun getAValue(): String {
+        return "hello there"
+    }
 }
